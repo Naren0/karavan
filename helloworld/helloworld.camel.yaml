@@ -26,4 +26,4 @@
             expression:
               simple:
                 id: simple-7583
-                expression: Hello ${body.name}, welcome to karavan
+                expression: Hello ${body}, welcome to karavan
