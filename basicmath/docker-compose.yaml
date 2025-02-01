@@ -1,0 +1,8 @@
+services:
+  basicmath:
+    image: basicmath
+    restart: always
+    ports:
+      - "8082:8080"
+    networks:
+      - karavan

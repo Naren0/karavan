@@ -1,0 +1,43 @@
+- rest:
+    id: rest-480b
+    post:
+      - id: post-551d
+        path: addition
+        to: direct:basicmath
+- route:
+    id: route-0e81
+    nodePrefixId: route-59f
+    from:
+      id: from-b4d1
+      description: route for math results
+      uri: direct
+      parameters:
+        name: basicmath
+      steps:
+        - doTry:
+            id: doTry-0c39
+            doCatch:
+              - id: doCatch-3808
+                exception:
+                  - java.lang.Exception
+                steps:
+                  - setBody:
+                      id: setBody-257a
+                      expression:
+                        simple:
+                          id: simple-5ff6
+                          expression: ${exception.message}
+            steps:
+              - unmarshal:
+                  id: unmarshal-cd98
+                  json:
+                    id: json-787c
+              - log:
+                  id: log-2842
+                  message: ${body}
+              - setBody:
+                  id: setBody-35b6
+                  expression:
+                    simple:
+                      id: simple-92e7
+                      expression: Hello ${body[name]}, welcome to karavan

@@ -1,0 +1,25 @@
+- route:
+    id: route-3124
+    from:
+      id: from-0272
+      uri: timer
+      parameters:
+        period: "5000"
+        timerName: yaml
+      steps:
+        - bean:
+            id: bean-3033
+            ref: myCustomer
+            method: summary
+        - log:
+            id: log-999a
+            message: ${body}
+- beans:
+    - name: myCustomer
+      type: com.mycompany.Customer
+      builderClass: com.mycompany.CustomerBuilder
+      properties:
+        name: Acme
+        street: Somestreet 42
+        zip: 90210
+        gold: true
