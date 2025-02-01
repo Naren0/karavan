@@ -1,3 +1,9 @@
+- rest:
+    id: rest-27c4
+    post:
+      - id: post-8747
+        path: helloworld
+        to: direct:helloworld
 - route:
     id: route-bb9d
     nodePrefixId: route-258
@@ -8,10 +14,10 @@
       parameters:
         name: helloworld
       steps:
-        - marshal:
-            id: marshal-bbdd
+        - unmarshal:
+            id: unmarshal-78f0
             json:
-              id: json-8d30
+              id: json-38b9
         - log:
             id: log-3d66
             message: ${body}
@@ -19,11 +25,5 @@
             id: setBody-1315
             expression:
               simple:
-                id: simple-34ac
-                expression: Hello {$.name}, welcome to karavan
-- rest:
-    id: rest-27c4
-    post:
-      - id: post-8747
-        path: helloworld
-        to: direct:helloworld
+                id: simple-7583
+                expression: Hello ${body.name}, welcome to karavan
