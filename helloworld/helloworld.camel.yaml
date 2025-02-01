@@ -1,0 +1,29 @@
+- route:
+    id: route-bb9d
+    nodePrefixId: route-258
+    from:
+      id: from-f06b
+      description: sample hello world program
+      uri: direct
+      parameters:
+        name: helloworld
+      steps:
+        - marshal:
+            id: marshal-bbdd
+            json:
+              id: json-8d30
+        - log:
+            id: log-3d66
+            message: ${body}
+        - setBody:
+            id: setBody-1315
+            expression:
+              simple:
+                id: simple-34ac
+                expression: Hello {$.name}, welcome to karavan
+- rest:
+    id: rest-27c4
+    post:
+      - id: post-8747
+        path: helloworld
+        to: direct:helloworld
