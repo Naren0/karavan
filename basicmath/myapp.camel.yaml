@@ -6,6 +6,7 @@
       parameters:
         period: "5000"
         timerName: yaml
+        repeatCount: "3"
       steps:
         - bean:
             id: bean-3033
